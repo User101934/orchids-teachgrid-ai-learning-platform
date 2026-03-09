@@ -8,14 +8,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
@@ -24,27 +24,27 @@
 :root {
   --background: #fdfdfd;
   --foreground: #0f172a;
-  
+
   --primary: #4f46e5;
   --primary-foreground: #ffffff;
-  
+
   --muted: #64748b;
   --muted-foreground: #94a3b8;
-  
+
   --border: rgba(15, 23, 42, 0.08);
   --input: rgba(15, 23, 42, 0.08);
   --ring: #4f46e5;
-  
+
   --radius: 0.75rem;
 }
 
 .dark {
   --background: #020617;
   --foreground: #f8fafc;
-  
+
   --primary: #6366f1;
   --primary-foreground: #ffffff;
-  
+
   --border: rgba(248, 250, 252, 0.1);
   --input: rgba(248, 250, 252, 0.1);
 }
@@ -53,14 +53,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground selection:bg-indigo-100 selection:text-indigo-900 relative min-h-screen;
   }
-  
+
   body::before {
     content: "";
-    @apply fixed inset-0 z-[9999] pointer-events-none opacity-[0.03] dark:opacity-[0.05];
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    @apply fixed inset-0 z-[9999] pointer-events-none opacity-[0.02] dark:opacity-[0.04];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
   }
 }
 
@@ -69,7 +71,7 @@
   .glass {
     @apply bg-white/70 backdrop-blur-md border-b border-white/20 dark:bg-slate-900/70 dark:border-slate-800/20;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }

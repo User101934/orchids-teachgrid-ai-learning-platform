@@ -39,8 +39,15 @@ const FEATURES = [
 
 const PlatformSection = () => {
   return (
-    <section className="py-32 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-20 dark:opacity-30">
+        <img
+          src="/images/premium-hero.png"
+          alt=""
+          className="w-full h-full object-cover grayscale mix-blend-overlay"
+        />
+      </div>
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mb-24">
           <h2 className="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4">The Infrastructure</h2>
           <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">

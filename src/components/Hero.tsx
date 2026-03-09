@@ -7,10 +7,15 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <section className="relative pt-40 pb-32 overflow-hidden bg-background">
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-linear-to-b from-indigo-50/50 to-transparent dark:from-indigo-900/10 -z-10 blur-3xl rounded-full" />
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-purple-50/30 dark:bg-purple-900/5 -z-10 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/20 dark:bg-blue-900/5 -z-10 blur-3xl rounded-full" />
+      {/* Custom Abstract Grain Background */}
+      <div className="absolute inset-0 -z-10 bg-background overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-full opacity-60 dark:opacity-40 blur-3xl rounded-full bg-linear-to-b from-indigo-500/10 to-transparent" />
+        <img
+          src="/images/premium-hero.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none mix-blend-soft-light"
+        />
+      </div>
 
       <div className="container mx-auto px-6 text-center">
         <motion.div
@@ -66,11 +71,15 @@ const Hero = () => {
         >
           <div className="absolute inset-0 bg-linear-to-r from-indigo-500/20 to-purple-500/20 blur-2xl rounded-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           <div className="p-2 rounded-[2rem] bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm shadow-2xl overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
-            <div className="rounded-[1.5rem] overflow-hidden bg-slate-900 aspect-video relative group/mockup">
-              <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-slate-900/90 to-indigo-900/40 flex items-center justify-center">
-                {/* Inner Grain for depth */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none"
-                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+            <div className="rounded-[1.5rem] overflow-hidden bg-slate-950 aspect-video relative group/mockup">
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* Premium 3D Grained Layer */}
+                <img
+                  src="/images/premium-hero.png"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen grayscale"
+                  alt=""
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-slate-950/80 via-slate-950/40 to-indigo-900/40" />
                 <div className="flex flex-col items-center gap-6">
                   <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-900 flex items-center justify-center shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
                     <img
