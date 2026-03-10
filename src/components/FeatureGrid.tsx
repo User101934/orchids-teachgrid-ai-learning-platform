@@ -35,7 +35,7 @@ const FeatureGrid = () => {
                                         $18.5 million upside
                                     </div>
                                     <p className="text-slate-400 text-sm leading-relaxed">
-                                        "TeachGrid AI identified significant optimization opportunities in our student lifecycle management..."
+                                        &quot;TeachGrid AI identified significant optimization opportunities in our student lifecycle management...&quot;
                                     </p>
                                     <div className="inline-flex px-3 py-1 rounded-full bg-white text-slate-900 text-[12px] font-bold">
                                         expanded deal sizes

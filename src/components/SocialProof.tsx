@@ -9,7 +9,15 @@ const universities = [
 
 const SocialProof = () => {
     return (
-        <section className="py-20 bg-background border-y border-slate-100 dark:border-slate-800/50">
+        <section className="relative py-20 bg-background border-y border-slate-100 dark:border-slate-800/50 overflow-hidden">
+            {/* Grain Background */}
+            <div className="absolute inset-0 -z-10 opacity-[0.15] dark:opacity-[0.1] grayscale pointer-events-none">
+                <img
+                    src="/images/premium-hero.png"
+                    alt=""
+                    className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay"
+                />
+            </div>
             <div className="container mx-auto px-6">
                 <p className="text-center text-sm font-medium text-slate-500 dark:text-slate-400 mb-12 uppercase tracking-[0.2em]">
                     Trusted by industry leaders and educators worldwide

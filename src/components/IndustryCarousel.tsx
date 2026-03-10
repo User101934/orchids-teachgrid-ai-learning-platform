@@ -28,7 +28,15 @@ const industries = [
 
 const IndustryCarousel = () => {
     return (
-        <section className="py-24 bg-background overflow-hidden">
+        <section className="relative py-24 bg-background overflow-hidden">
+            {/* Grain Background */}
+            <div className="absolute inset-0 -z-10 opacity-[0.1] dark:opacity-[0.05] grayscale pointer-events-none">
+                <img
+                    src="/images/premium-hero.png"
+                    alt=""
+                    className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay rotate-180"
+                />
+            </div>
             <div className="container mx-auto px-6 mb-12 flex justify-between items-end">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
                     Powering progress across industries

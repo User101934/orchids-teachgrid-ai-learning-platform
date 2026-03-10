@@ -1,0 +1,15 @@
+﻿
+D:\5-02\orchids-teachgrid-ai-learning-platform\src\components\FeatureGrid.tsx
+  38:41   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  38:143  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\5-02\orchids-teachgrid-ai-learning-platform\src\components\Navbar.tsx
+  188:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  201:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  393:77  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  417:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  448:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  452:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 8 problems (8 errors, 0 warnings)
+

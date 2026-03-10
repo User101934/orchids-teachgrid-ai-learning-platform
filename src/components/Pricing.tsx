@@ -28,7 +28,15 @@ const PLANS = [
 
 const Pricing = () => {
   return (
-    <section className="py-32 bg-white dark:bg-slate-900">
+    <section className="relative py-32 bg-white dark:bg-slate-900 overflow-hidden">
+      {/* Grain Background */}
+      <div className="absolute inset-0 -z-10 opacity-[0.15] dark:opacity-[0.1] grayscale pointer-events-none">
+        <img
+          src="/images/premium-hero.png"
+          alt=""
+          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay"
+        />
+      </div>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-24">
           <h2 className="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4">Pricing Plans</h2>

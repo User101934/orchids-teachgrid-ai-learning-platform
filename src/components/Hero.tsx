@@ -52,38 +52,32 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Floating Mockup / Visual */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-24 relative max-w-6xl mx-auto group"
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-24 relative max-w-7xl mx-auto"
         >
-          <div className="absolute inset-0 bg-linear-to-r from-indigo-500/20 to-purple-500/20 blur-2xl rounded-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <div className="p-2 rounded-[2rem] bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm shadow-2xl overflow-hidden border border-slate-200/50 dark:border-slate-700/50">
-            <div className="rounded-[1.5rem] overflow-hidden bg-slate-950 aspect-video relative group/mockup">
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* Premium 3D Grained Layer */}
-                <img
-                  src="/images/premium-hero.png"
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen grayscale"
-                  alt=""
-                />
-                <div className="absolute inset-0 bg-linear-to-br from-slate-950/80 via-slate-950/40 to-indigo-900/40" />
-                <div className="flex flex-col items-center gap-6">
-                  <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-900 flex items-center justify-center shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
-                    <img
-                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/f32bc3e4-3637-45b4-97a7-8620b4aefe83/image-resized-1772182697345.webp?width=8000&height=8000&resize=contain"
-                      alt="TeachGrid Logo"
-                      className="w-full h-auto object-contain p-2"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="w-48 h-2 bg-slate-700 rounded-full animate-pulse" />
-                    <div className="w-32 h-2 bg-slate-700 rounded-full animate-pulse mx-auto" />
-                  </div>
-                </div>
-              </div>
+          <div className="flex flex-col md:flex-row h-full min-h-[450px] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-slate-200/50 dark:border-slate-800/50">
+            {/* Left Panel: Branded TeachGrid ROI Analysis (2/3 Width) */}
+            <div className="flex-[2] relative overflow-hidden border-r border-slate-200/10 dark:border-slate-800/10">
+              <img
+                src="/images/hero_roi_branded.png"
+                alt="TeachGrid AI Metrics"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/5" />
+            </div>
+
+            {/* Right Panel: Branded Educator Success Portrait (1/3 Width) */}
+            <div className="flex-[1] relative overflow-hidden">
+              <img
+                src="/images/hero_portrait_branded.png"
+                alt="TeachGrid Educator Success"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/5" />
             </div>
           </div>
         </motion.div>

@@ -73,8 +73,8 @@ const InteractiveShowcase = () => {
                                     key={f.id}
                                     onClick={() => setActiveTab(f)}
                                     className={`group w-full text-left p-6 rounded-2xl transition-all border ${activeTab.id === f.id
-                                            ? 'bg-white/10 border-white/20 backdrop-blur-md shadow-xl'
-                                            : 'bg-transparent border-transparent hover:bg-white/5'
+                                        ? 'bg-white/10 border-white/20 backdrop-blur-md shadow-xl'
+                                        : 'bg-transparent border-transparent hover:bg-white/5'
                                         }`}
                                 >
                                     <div className="flex items-center gap-4 mb-2">
@@ -107,37 +107,43 @@ const InteractiveShowcase = () => {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
-                                className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl"
+                                className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden"
                             >
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400">
-                                        {activeTab.icon}
-                                    </div>
-                                    <h4 className="text-xl font-bold text-white">{activeTab.content.title}</h4>
-                                </div>
+                                {/* Noise Overlay */}
+                                <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+                                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
 
-                                <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                                    {activeTab.content.subtitle}
-                                </p>
-
-                                <div className="bg-black/40 border border-white/5 rounded-2xl p-4 flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <div className="p-2 rounded-lg bg-green-500/10 text-green-400">
-                                            <Layout className="w-5 h-5" />
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400">
+                                            {activeTab.icon}
                                         </div>
-                                        <div>
-                                            <div className="text-white font-mono text-sm uppercase tracking-wider">{activeTab.content.file}</div>
-                                            <div className="text-green-500/60 font-mono text-[10px]">{activeTab.content.size}</div>
+                                        <h4 className="text-xl font-bold text-white">{activeTab.content.title}</h4>
+                                    </div>
+
+                                    <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                                        {activeTab.content.subtitle}
+                                    </p>
+
+                                    <div className="bg-black/40 border border-white/5 rounded-2xl p-4 flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 rounded-lg bg-green-500/10 text-green-400">
+                                                <Layout className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <div className="text-white font-mono text-sm uppercase tracking-wider">{activeTab.content.file}</div>
+                                                <div className="text-green-500/60 font-mono text-[10px]">{activeTab.content.size}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="mt-8 pt-8 border-t border-white/5 flex justify-between items-center text-slate-500 font-mono text-xs">
-                                    <span>UNITS ACTIVATED: 2,492</span>
-                                    <div className="flex gap-2">
-                                        <div className="w-1 h-1 rounded-full bg-green-500" />
-                                        <div className="w-1 h-3 rounded-full bg-green-500/30" />
-                                        <div className="w-1 h-2 rounded-full bg-green-500/50" />
+                                    <div className="mt-8 pt-8 border-t border-white/5 flex justify-between items-center text-slate-500 font-mono text-xs">
+                                        <span>UNITS ACTIVATED: 2,492</span>
+                                        <div className="flex gap-2">
+                                            <div className="w-1 h-1 rounded-full bg-green-500" />
+                                            <div className="w-1 h-3 rounded-full bg-green-500/30" />
+                                            <div className="w-1 h-2 rounded-full bg-green-500/50" />
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

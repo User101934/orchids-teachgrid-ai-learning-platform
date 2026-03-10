@@ -36,7 +36,15 @@ const props = [
 
 const ValueProps = () => {
     return (
-        <section className="py-32 bg-background">
+        <section className="relative py-32 bg-background overflow-hidden">
+            {/* Grain Background */}
+            <div className="absolute inset-0 -z-10 opacity-[0.2] dark:opacity-[0.1] grayscale pointer-events-none">
+                <img
+                    src="/images/premium-hero.png"
+                    alt=""
+                    className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay"
+                />
+            </div>
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-20 text-center">
                     Safe. Flexible. Built for learning.

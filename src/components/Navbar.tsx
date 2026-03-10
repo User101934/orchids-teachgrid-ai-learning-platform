@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -142,6 +142,25 @@ const navItems = [
   { label: 'Company', href: '#company' },
 ];
 
+interface NavSection {
+  title: string;
+  description?: string;
+  items: string[];
+}
+
+interface NavItemProps {
+  label: string;
+  children?: ReactNode;
+  isActive?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}
+
+interface MobileNavItemProps {
+  label: string;
+  items?: { title: string; items: string[] }[];
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeMenu, setActiveMenu] = React.useState<string | null>(null);
@@ -185,7 +204,7 @@ const Navbar = () => {
                     <div className="grid grid-cols-3 gap-16">
                       {PLATFORM_MENU_COLUMNS.map((column, idx) => (
                         <div key={idx} className="space-y-12">
-                          {column.sections.map((section: any) => (
+                          {column.sections.map((section: NavSection) => (
                             <div key={section.title} className="space-y-4">
                               <h4 className="text-[12px] font-bold uppercase tracking-[0.1em] text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
                                 {section.title.replace(' ✨', '')}
@@ -198,7 +217,7 @@ const Navbar = () => {
                               )}
                               {section.items.length > 0 && (
                                 <ul className="space-y-2.5">
-                                  {section.items.map((item: any) => (
+                                  {section.items.map((item: string) => (
                                     <li key={item}>
                                       <Link href="#" className="text-[14px] text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors flex items-center gap-2">
                                         {item.replace(' ✨', '')}
@@ -390,7 +409,7 @@ const Navbar = () => {
   );
 };
 
-const NavItem = ({ label, children, isActive, onMouseEnter, onMouseLeave }: any) => {
+const NavItem = ({ label, children, isActive, onMouseEnter, onMouseLeave }: NavItemProps) => {
   return (
     <div className="relative h-full flex items-center" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <button className="flex items-center gap-1 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white font-medium transition-colors py-8 px-3">
@@ -414,7 +433,7 @@ const NavItem = ({ label, children, isActive, onMouseEnter, onMouseLeave }: any)
   );
 };
 
-const MobileNavItem = ({ label, items }: any) => {
+const MobileNavItem = ({ label, items }: MobileNavItemProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   if (!items) {
@@ -445,11 +464,11 @@ const MobileNavItem = ({ label, items }: any) => {
             className="overflow-hidden"
           >
             <div className="pt-4 pb-2 space-y-6">
-              {items.map((section: any) => (
+              {items.map((section: { title: string; items: string[] }) => (
                 <div key={section.title} className="space-y-3 px-2">
                   <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{section.title}</h4>
                   <ul className="space-y-2">
-                    {section.items.map((item: any) => (
+                    {section.items.map((item: string) => (
                       <li key={item}>
                         <Link href="#" className="text-[15px] text-slate-600 dark:text-slate-400 block py-1">
                           {item.replace(' ✨', '')}
